@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RelayPay Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-mark">R</span>
+          <span class="logo-text">RelayPay</span>
+        </div>
+        <span class="header-label">Customer Support</span>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="hero">
+        <h1 class="hero-title">How can we help you today?</h1>
+        <p class="hero-subtitle">Press the button below and speak your question. Our AI support agent will respond instantly.</p>
+      </div>
+
+      <!-- Voice Interface -->
+      <div class="voice-interface">
+        <div class="pulse-ring" id="pulse-ring"></div>
+        <button class="voice-btn" id="voice-btn" aria-label="Start speaking">
+          <svg class="mic-icon" id="mic-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="23"></line>
+            <line x1="8" y1="23" x2="16" y2="23"></line>
+          </svg>
+          <svg class="stop-icon hidden" id="stop-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="6" y="6" width="12" height="12" rx="2"></rect>
+          </svg>
+        </button>
+        <p class="status-text" id="status">Press to speak</p>
+      </div>
+
+      <!-- Transcript -->
+      <div class="transcript-panel" id="transcript-panel">
+        <div class="transcript-header">
+          <span class="transcript-label">Conversation</span>
+          <button class="clear-btn" id="clear-btn">Clear</button>
+        </div>
+        <div class="transcript-body" id="transcript">
+          <div class="empty-state">
+            <p>Your conversation will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Powered by <strong>RelayPay</strong> &nbsp;·&nbsp; AI responses are based on approved support documentation. For complex issues, you will be connected to a support agent.</p>
+    </footer>
+
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
