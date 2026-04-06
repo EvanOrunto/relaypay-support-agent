@@ -115,10 +115,27 @@ function setButtonActive(active) {
 }
 
 function appendMessage(text, role) {
-  const p = document.createElement("p");
-  p.className = role === "user" ? "user-msg" : "agent-msg";
-  p.textContent = text;
-  transcriptEl.appendChild(p);
+  const row = document.createElement("div");
+
+  if (role === "user") {
+    row.className = "user-row";
+    const bubble = document.createElement("p");
+    bubble.className = "user-msg";
+    bubble.textContent = text;
+    row.appendChild(bubble);
+  } else {
+    row.className = "agent-row";
+    const avatar = document.createElement("div");
+    avatar.className = "agent-avatar";
+    avatar.textContent = "R";
+    const bubble = document.createElement("p");
+    bubble.className = "agent-msg";
+    bubble.textContent = text;
+    row.appendChild(avatar);
+    row.appendChild(bubble);
+  }
+
+  transcriptEl.appendChild(row);
   transcriptEl.scrollTop = transcriptEl.scrollHeight;
 }
 
