@@ -6,7 +6,7 @@
   <title>RelayPay — Customer Support</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,24 +14,17 @@
 
     <!-- Navbar -->
     <header class="navbar">
-      <div class="navbar-inner">
-
-        <!-- Logo -->
-        <a class="logo" href="/" aria-label="RelayPay">
-          <!-- Inline SVG: two overlapping chevrons -->
-          <svg class="logo-icon" width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Green chevron (left) -->
-            <path d="M15 0L1 15L15 30L19.5 25.5L9 15L19.5 4.5L15 0Z" fill="#4CAF50"/>
-            <!-- Teal chevron (right, overlapping) -->
-            <path d="M26 0L12 15L26 30L30.5 25.5L20 15L30.5 4.5L26 0Z" fill="#00BCD4"/>
-            <!-- Teal overlap correction where teal sits in front -->
-            <path d="M15 0L12 3L20 15L12 27L15 30L19.5 25.5L9 15L19.5 4.5L15 0Z" fill="#00BCD4" opacity="0.18"/>
-          </svg>
-          <span class="logo-wordmark">RelayPay</span>
-        </a>
-
-        <span class="navbar-label">Customer Support</span>
-      </div>
+      <a class="logo" href="/" aria-label="RelayPay">
+        <svg width="140" height="36" viewBox="0 0 140 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Green left chevron -->
+          <path d="M8 18 L18 8 L22 12 L15 18 L22 24 L18 28 Z" fill="#4CAF50"/>
+          <!-- Teal right chevron -->
+          <path d="M16 18 L26 8 L30 12 L23 18 L30 24 L26 28 Z" fill="#00BCD4"/>
+          <!-- RelayPay wordmark -->
+          <text x="38" y="24" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#0F2B5B">RelayPay</text>
+        </svg>
+      </a>
+      <span class="navbar-label">Customer Support</span>
     </header>
 
     <!-- Main content -->
@@ -50,8 +43,8 @@
         <div class="pulse-ring" id="pulse-ring"></div>
         <button class="voice-btn" id="voice-btn" aria-label="Start speaking">
           <!-- Microphone icon -->
-          <svg class="mic-icon" id="mic-icon" width="28" height="28" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+          <svg class="mic-icon" id="mic-icon" width="32" height="32" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
             <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
@@ -59,7 +52,7 @@
             <line x1="8" y1="23" x2="16" y2="23"/>
           </svg>
           <!-- Stop icon -->
-          <svg class="stop-icon hidden" id="stop-icon" width="22" height="22" viewBox="0 0 24 24"
+          <svg class="stop-icon hidden" id="stop-icon" width="26" height="26" viewBox="0 0 24 24"
             fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="6" y="6" width="12" height="12" rx="2"/>
           </svg>
