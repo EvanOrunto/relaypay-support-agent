@@ -3,66 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RelayPay Support</title>
+  <title>RelayPay — Customer Support</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="page-wrapper">
 
-    <!-- Header -->
-    <header class="header">
-      <div class="header-inner">
-        <div class="logo">
-          <span class="logo-mark">R</span>
-          <span class="logo-text">RelayPay</span>
-        </div>
-        <span class="header-label">Customer Support</span>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="navbar-inner">
+
+        <!-- Logo -->
+        <a class="logo" href="/" aria-label="RelayPay">
+          <!-- Inline SVG: two overlapping chevrons -->
+          <svg class="logo-icon" width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Green chevron (left) -->
+            <path d="M15 0L1 15L15 30L19.5 25.5L9 15L19.5 4.5L15 0Z" fill="#4CAF50"/>
+            <!-- Teal chevron (right, overlapping) -->
+            <path d="M26 0L12 15L26 30L30.5 25.5L20 15L30.5 4.5L26 0Z" fill="#00BCD4"/>
+            <!-- Teal overlap correction where teal sits in front -->
+            <path d="M15 0L12 3L20 15L12 27L15 30L19.5 25.5L9 15L19.5 4.5L15 0Z" fill="#00BCD4" opacity="0.18"/>
+          </svg>
+          <span class="logo-wordmark">RelayPay</span>
+        </a>
+
+        <span class="navbar-label">Customer Support</span>
       </div>
     </header>
 
-    <!-- Main -->
+    <!-- Main content -->
     <main class="main">
-      <div class="hero">
-        <h1 class="hero-title">How can we help you today?</h1>
-        <p class="hero-subtitle">Press the button below and speak your question. Our AI support agent will respond instantly.</p>
-      </div>
 
-      <!-- Voice Interface -->
+      <!-- Hero -->
+      <section class="hero">
+        <h1 class="hero-title">How can we help you today?</h1>
+        <p class="hero-subtitle">
+          Press the button and speak your question. Our support agent will respond instantly using RelayPay's approved documentation.
+        </p>
+      </section>
+
+      <!-- Voice interface -->
       <div class="voice-interface">
         <div class="pulse-ring" id="pulse-ring"></div>
         <button class="voice-btn" id="voice-btn" aria-label="Start speaking">
-          <svg class="mic-icon" id="mic-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-            <line x1="12" y1="19" x2="12" y2="23"></line>
-            <line x1="8" y1="23" x2="16" y2="23"></line>
+          <!-- Microphone icon -->
+          <svg class="mic-icon" id="mic-icon" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
           </svg>
-          <svg class="stop-icon hidden" id="stop-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <rect x="6" y="6" width="12" height="12" rx="2"></rect>
+          <!-- Stop icon -->
+          <svg class="stop-icon hidden" id="stop-icon" width="22" height="22" viewBox="0 0 24 24"
+            fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="6" y="6" width="12" height="12" rx="2"/>
           </svg>
         </button>
         <p class="status-text" id="status">Press to speak</p>
       </div>
 
-      <!-- Transcript -->
-      <div class="transcript-panel" id="transcript-panel">
-        <div class="transcript-header">
-          <span class="transcript-label">Conversation</span>
+      <!-- Conversation panel -->
+      <div class="conversation-panel" id="transcript-panel">
+        <div class="conversation-header">
+          <span class="conversation-label">Conversation</span>
           <button class="clear-btn" id="clear-btn">Clear</button>
         </div>
-        <div class="transcript-body" id="transcript">
+        <div class="conversation-body" id="transcript">
           <div class="empty-state">
             <p>Your conversation will appear here.</p>
           </div>
         </div>
       </div>
+
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-      <p>Powered by <strong>RelayPay</strong> &nbsp;·&nbsp; AI responses are based on approved support documentation. For complex issues, you will be connected to a support agent.</p>
+      <p>RelayPay &middot; AI responses are based on approved support documentation. For complex issues, a support specialist will be connected.</p>
     </footer>
 
   </div>
