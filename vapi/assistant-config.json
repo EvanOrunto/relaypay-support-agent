@@ -1,0 +1,30 @@
+{
+  "_comment": "RelayPay Support Agent — VAPI Assistant Configuration Record",
+  "_note": "assistant_id will be populated after Phase 3 VAPI setup via VAPI MCP.",
+  "name": "RelayPay Support Agent",
+  "assistant_id": "PENDING_CREATION",
+  "model": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-4-6",
+    "temperature": 0.3
+  },
+  "voice": {
+    "provider": "11labs",
+    "stability": 0.75,
+    "similarity_boost": 0.75
+  },
+  "first_message": "Hello, you've reached RelayPay support. How can I help you today?",
+  "end_call_message": "Thank you for contacting RelayPay. Have a great day.",
+  "end_call_phrases": ["goodbye", "that's all", "thanks bye", "no more questions"],
+  "silence_timeout_seconds": 30,
+  "max_duration_seconds": 600,
+  "server_url": "PENDING_N8N_WEBHOOK_URL",
+  "knowledge_base_files": [
+    "kb-onboarding.txt",
+    "kb-pricing-fees.txt",
+    "kb-payout-timelines.txt",
+    "kb-failed-transactions.txt",
+    "kb-invoicing.txt",
+    "kb-compliance.txt"
+  ]
+}

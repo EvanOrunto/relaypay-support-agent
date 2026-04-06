@@ -1,0 +1,16 @@
+{
+  "_comment": "RelayPay Support Agent — n8n Workflow Placeholder",
+  "_note": "This file will be replaced with the exported workflow JSON after Phase 4 build via n8n MCP.",
+  "name": "RelayPay Support Agent - Main Flow",
+  "nodes": [],
+  "status": "pending_build",
+  "phases": {
+    "trigger": "Webhook — receives VAPI message payload",
+    "step1": "Extract Question — parse user message",
+    "step2": "Query Notion — search knowledge base",
+    "step3": "Confidence Check — evaluate answer quality",
+    "step4a": "Generate Response — Claude API + Notion context",
+    "step4b": "Escalate — Slack/email notification to human team",
+    "step5": "Log to Supabase — insert conversation_logs record"
+  }
+}
