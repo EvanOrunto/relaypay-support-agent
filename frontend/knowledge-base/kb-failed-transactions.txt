@@ -1,0 +1,70 @@
+RELAYPAY KNOWLEDGE BASE — FAILED AND DELAYED TRANSACTIONS
+Topic: Troubleshooting Failed, Stuck, or Delayed Payments
+Last Updated: April 2026
+
+---
+
+WHY DO TRANSACTIONS FAIL OR GET DELAYED?
+
+Transactions on RelayPay may fail, be delayed, or be placed on hold for the following reasons:
+
+- Incorrect or incomplete beneficiary account details
+- Insufficient account balance at the time of processing
+- Compliance or risk review triggered by the transaction
+- Unusual transaction patterns flagged by automated monitoring
+- Large transaction amounts requiring additional checks
+- Changes to beneficiary details that need verification
+- Banking partner outages or scheduled maintenance
+- Public holidays in the source or destination country
+
+---
+
+WHAT HAPPENS WHEN A TRANSACTION IS HELD FOR REVIEW?
+
+All transactions processed through RelayPay are subject to continuous monitoring. A transaction may be automatically approved, delayed for review, or temporarily held pending additional checks. Common triggers include unusual patterns, large amounts, changes to beneficiary details, or activity inconsistent with a customer's history.
+
+The specific rules and thresholds used for monitoring are confidential. RelayPay does not disclose internal risk logic.
+
+---
+
+WHAT DO THE TRANSACTION STATUSES MEAN?
+
+- Processing: The transaction has been submitted and is being handled by RelayPay's systems or banking partners.
+- In Review: The transaction has been flagged for a compliance or risk check and is temporarily paused.
+- In Transit: The payment has left RelayPay and is being processed by the receiving bank.
+- Delivered: The payment has been confirmed as received by the destination account.
+- Failed: The transaction could not be completed. Funds are typically returned to the sender.
+
+Note: Dashboard status updates may lag behind actual bank processing times, especially during peak hours or public holidays.
+
+---
+
+WHAT HAPPENS TO FUNDS WHEN A TRANSACTION FAILS?
+
+If a transaction fails, funds are generally returned to the sender's RelayPay balance. The timeline for fund returns depends on the stage at which the transaction failed. RelayPay does not guarantee specific refund timelines as these may depend on banking partners.
+
+---
+
+WHAT SHOULD I DO IF A TRANSACTION IS STUCK?
+
+If your transaction has been in a "processing" or "in review" state beyond the standard processing window, take the following steps:
+
+1. Check the transaction status in your RelayPay dashboard for any alerts or requests for additional information.
+2. Verify that the beneficiary account details you submitted are correct.
+3. If no update is available after the expected processing window, contact RelayPay support through the official support channels in your dashboard.
+
+Provide your transaction reference number when contacting support to speed up the investigation.
+
+---
+
+DISPUTES AND FAILED TRANSACTION INVESTIGATIONS
+
+Disputes and failed transaction investigations require manual handling by RelayPay's support and operations teams. These processes may involve reviewing transaction records and coordinating with banking partners.
+
+RelayPay does not guarantee dispute outcomes or resolution timelines. Each case is evaluated individually. To open a dispute, contact RelayPay support through the official channels in your dashboard.
+
+---
+
+IMPORTANT: SENSITIVE TRANSACTION ISSUES
+
+If your concern involves suspected fraud, an unauthorised transaction, or a compliance-related account restriction, this requires direct handling by the RelayPay support team. These issues cannot be resolved through automated or voice-based systems. Please contact support immediately through your dashboard.

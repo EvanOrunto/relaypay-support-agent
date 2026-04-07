@@ -1,0 +1,85 @@
+RELAYPAY KNOWLEDGE BASE — COMPLIANCE REQUIREMENTS
+Topic: Regulatory Compliance, KYC/KYB, Account Reviews, and Data Security
+Last Updated: April 2026
+
+---
+
+OVERVIEW
+
+RelayPay operates in regulated financial environments across multiple jurisdictions, including Africa, Europe, and North America. As a financial services provider, RelayPay is required to comply with a range of local and international regulations, including Anti-Money Laundering (AML), Counter-Terrorist Financing (CTF), Know Your Customer (KYC), Know Your Business (KYB), and data protection laws.
+
+Compliance obligations vary depending on user location, transaction corridor, transaction size, frequency, and risk profile. Compliance decisions are made by automated systems and internal compliance teams. These decisions cannot be overridden by customer support or operations staff.
+
+---
+
+IDENTITY VERIFICATION (KYC AND KYB)
+
+All RelayPay customers must complete identity verification before accessing full platform functionality.
+
+Verification requirements may include:
+- Business registration documents
+- Proof of identity for directors, owners, or authorised signatories
+- Proof of address or operating location
+
+In some cases, additional documentation may be requested after an account has already been approved. Verification outcomes and timelines are determined by compliance requirements, not by customer support.
+
+---
+
+TRANSACTION MONITORING AND RISK REVIEWS
+
+All transactions processed through RelayPay are subject to continuous monitoring. Transactions may be automatically approved, delayed for review, or temporarily held pending additional checks.
+
+Common triggers for review include:
+- Unusual transaction patterns
+- Large transaction amounts
+- Changes to beneficiary details
+- Activity inconsistent with historical usage
+
+The specific rules and thresholds used for monitoring are confidential. RelayPay does not disclose internal risk logic or review criteria.
+
+---
+
+ACCOUNT RESTRICTIONS AND SUSPENSIONS
+
+RelayPay may apply temporary restrictions or suspensions to accounts when:
+- Required verification steps are incomplete
+- Compliance or risk reviews are ongoing
+- Suspicious or inconsistent activity is detected
+
+Restrictions are precautionary measures and do not imply wrongdoing. In most cases, restrictions are lifted once the required review or action is completed. Details about why a specific account was restricted are not always shareable due to regulatory and security considerations.
+
+If your account has been restricted, contact RelayPay support through the official channels in your dashboard. Do not share sensitive account information through voice or automated systems.
+
+---
+
+WHY IS MY ACCOUNT UNDER REVIEW?
+
+Accounts may be placed under review as part of routine compliance and security processes. A review does not necessarily mean there is a problem with your account. Once the review is complete, access is typically restored.
+
+---
+
+DATA SECURITY AND PRIVACY
+
+RelayPay is committed to protecting customer data and financial information. Key security principles include least-privilege access to internal systems, segmentation of customer data, and secure storage and transmission of sensitive information.
+
+Automated systems and customer-facing tools — including this voice agent — do not have access to account balances, transaction identifiers, personal identity documents, or internal risk assessments. RelayPay does not share sensitive account information through automated or voice-based systems.
+
+---
+
+DISPUTES, REFUNDS, AND CANCELLATIONS
+
+Disputes, refunds, and cancellations require manual handling by RelayPay's support and operations teams. These processes may involve reviewing transaction records, coordinating with banking partners, and compliance checks.
+
+RelayPay does not guarantee dispute outcomes or resolution timelines. Each case is evaluated individually. To raise a dispute, contact RelayPay support through the official channels in your dashboard.
+
+---
+
+WHAT RELAYPAY CANNOT ADVISE ON
+
+RelayPay does not provide legal, tax, or financial advice. The voice support agent cannot access account-specific information, compliance decisions, or transaction details. For any account-specific compliance concern, contact the support team directly through your dashboard.
+
+---
+
+HOW TO CONTACT SUPPORT FOR COMPLIANCE ISSUES
+
+Support can be reached through the support options available in the RelayPay dashboard. Account-specific questions, disputes, failed transactions, and compliance-related issues are handled by human support agents, not automated systems.

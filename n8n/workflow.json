@@ -1,16 +1,735 @@
 {
-  "_comment": "RelayPay Support Agent — n8n Workflow Placeholder",
-  "_note": "This file will be replaced with the exported workflow JSON after Phase 4 build via n8n MCP.",
   "name": "RelayPay Support Agent - Main Flow",
-  "nodes": [],
-  "status": "pending_build",
-  "phases": {
-    "trigger": "Webhook — receives VAPI message payload",
-    "step1": "Extract Question — parse user message",
-    "step2": "Query Notion — search knowledge base",
-    "step3": "Confidence Check — evaluate answer quality",
-    "step4a": "Generate Response — Claude API + Notion context",
-    "step4b": "Escalate — Slack/email notification to human team",
-    "step5": "Log to Supabase — insert conversation_logs record"
-  }
+  "nodes": [
+    {
+      "id": "node-01",
+      "name": "VAPI Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        240,
+        300
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "relaypay-support",
+        "responseMode": "responseNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "node-02",
+      "name": "Validate Secret",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        300
+      ],
+      "parameters": {
+        "jsCode": "const headers = $input.first().json.headers || {};\nconst secret = headers[\"x-vapi-secret\"] || \"\";\nconst expectedSecret = \"relaypay-webhook-secret-2026\";\nreturn [{ json: { authorized: secret === expectedSecret, body: $input.first().json.body || {} } }];"
+      }
+    },
+    {
+      "id": "node-03",
+      "name": "Auth Check",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        720,
+        300
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.authorized }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "node-04",
+      "name": "Reject 401",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        960,
+        100
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"error\":\"Unauthorized\"}",
+        "options": {
+          "responseCode": 401
+        }
+      }
+    },
+    {
+      "id": "node-05",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        420
+      ],
+      "parameters": {
+        "jsCode": "const body = $input.first().json.body || {};\nconst message = body.message || {};\nconst call = body.call || {};\nconst sessionId = call.id || (\"fallback_\" + Date.now());\nconst customerId = (call.customer && call.customer.number) ? call.customer.number : \"anonymous\";\nif (message.type !== \"transcript\") {\n  return [{ json: { is_valid: false, skip_reason: \"not_transcript\", response: null, session_id: sessionId, customer_id: customerId, question: \"\" } }];\n}\nif (message.role !== \"user\") {\n  return [{ json: { is_valid: false, skip_reason: \"assistant_echo\", response: null, session_id: sessionId, customer_id: customerId, question: \"\" } }];\n}\nconst transcript = (message.transcript || \"\").trim();\nif (!transcript || transcript.length < 3) {\n  return [{ json: { is_valid: false, skip_reason: \"empty_or_short\", response: \"I'm sorry, I didn't quite catch that. Could you please repeat your question?\", session_id: sessionId, customer_id: customerId, question: transcript } }];\n}\nreturn [{ json: { is_valid: true, skip_reason: null, question: transcript, session_id: sessionId, customer_id: customerId, response: null } }];"
+      }
+    },
+    {
+      "id": "node-06",
+      "name": "Input Valid Check",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        420
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c2",
+              "leftValue": "={{ $json.is_valid }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "node-07",
+      "name": "Respond Early",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1440,
+        220
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({response: $json.response}) }}",
+        "options": {
+          "responseCode": 200
+        }
+      }
+    },
+    {
+      "id": "node-08",
+      "name": "Log Skipped",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1680,
+        220
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://lgcokylcrzprpdnndhlk.supabase.co/rest/v1/conversation_logs",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "REDACTED_SUPABASE_SERVICE_KEY"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer REDACTED_SUPABASE_SERVICE_KEY"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "session_id",
+              "value": "={{ $json.session_id }}"
+            },
+            {
+              "name": "customer_id",
+              "value": "={{ $json.customer_id }}"
+            },
+            {
+              "name": "question",
+              "value": "={{ $json.question || \"\" }}"
+            },
+            {
+              "name": "response",
+              "value": "={{ $json.response || \"\" }}"
+            },
+            {
+              "name": "confidence",
+              "value": "skipped"
+            },
+            {
+              "name": "escalated",
+              "value": "={{ false }}"
+            },
+            {
+              "name": "escalation_reason",
+              "value": "={{ $json.skip_reason || null }}"
+            },
+            {
+              "name": "keyword_matched",
+              "value": "={{ null }}"
+            },
+            {
+              "name": "escalation_notified",
+              "value": "={{ false }}"
+            },
+            {
+              "name": "created_at",
+              "value": "={{ new Date().toISOString() }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "node-09",
+      "name": "Confidence Evaluator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        560
+      ],
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\nconst question = item.question.toLowerCase();\nconst SENSITIVE = [\"dispute\",\"fraud\",\"legal\",\"suspend\",\"compliance violation\",\"stolen\",\"chargeback\",\"unauthorized\",\"account blocked\",\"refund\"];\nlet keyword_matched = null;\nfor (const kw of SENSITIVE) { if (question.includes(kw)) { keyword_matched = kw; break; } }\nif (keyword_matched) {\n  return [{ json: { confidence: \"escalated\", keyword_matched, question: item.question, session_id: item.session_id, customer_id: item.customer_id, vague: false } }];\n}\nconst wordCount = item.question.trim().split(/\\s+/).filter(w => w.length > 0).length;\nif (wordCount < 4) {\n  return [{ json: { confidence: \"low\", keyword_matched: null, vague: true, question: item.question, session_id: item.session_id, customer_id: item.customer_id } }];\n}\nreturn [{ json: { confidence: \"high\", keyword_matched: null, vague: false, question: item.question, session_id: item.session_id, customer_id: item.customer_id } }];"
+      }
+    },
+    {
+      "id": "node-10",
+      "name": "Route by Confidence",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        1680,
+        560
+      ],
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s1",
+                    "leftValue": "={{ $json.confidence }}",
+                    "rightValue": "high",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "high"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s2",
+                    "leftValue": "={{ $json.confidence }}",
+                    "rightValue": "low",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "low"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "s3",
+                    "leftValue": "={{ $json.confidence }}",
+                    "rightValue": "escalated",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "escalated"
+            }
+          ]
+        },
+        "fallbackOutput": "extra",
+        "options": {}
+      }
+    },
+    {
+      "id": "node-11",
+      "name": "OpenAI Generate",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        1920,
+        340
+      ],
+      "continueOnFail": true,
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "options": {
+          "maxTokens": 300,
+          "temperature": 0.3
+        },
+        "responses": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a professional customer support agent for RelayPay — a cross-border payments and invoicing platform for African startups and SMEs.\n\nYour job is to answer customer questions clearly and accurately.\n\nRules you must follow:\n1. Only answer questions about: onboarding, pricing and fees, payout timelines, failed or delayed transactions, invoicing, and compliance requirements.\n2. For onboarding: RelayPay requires business registration documents, proof of identity for directors, and proof of address. Verification timelines vary by jurisdiction.\n3. For pricing: Fees vary by corridor and payment method. All fees are shown before confirming a transaction. Exchange rates fluctuate and are locked at confirmation.\n4. For payout timelines: Local payouts take 1-2 business days. International payouts take 2-5 business days. RelayPay does not support instant international payments.\n5. For failed transactions: Common causes include incorrect beneficiary details, compliance holds, or banking partner issues. Funds are returned if a transaction fails.\n6. For invoicing: RelayPay supports multi-currency invoicing in any currency. Invoices track draft, sent, and paid status. Payment collection depends on the payer.\n7. For compliance: RelayPay follows AML, KYC, and KYB requirements. Account restrictions are precautionary and lifted after review.\n8. Never make up information. If you are not sure, say: \"I want to make sure I give you accurate information. Let me connect you with a member of our team.\"\n9. If a question is unclear, ask one specific clarifying question.\n10. Always sound professional, calm, and trustworthy.\n11. Keep responses concise — no longer than 3-4 sentences for voice.\n12. Always end sensitive topics with: \"Would you like me to connect you with our support team for further assistance?\"\n\nYou represent RelayPay. Every response reflects on the brand."
+            },
+            {
+              "role": "user",
+              "content": "={{ 'Customer question: ' + $json.question }}"
+            }
+          ]
+        }
+      },
+      "credentials": {
+        "openAiApi": {
+          "id": "K0yFMg6imH2OSMlA",
+          "name": "OpenAi account 6"
+        }
+      }
+    },
+    {
+      "id": "node-12",
+      "name": "Build Response High",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2160,
+        340
+      ],
+      "parameters": {
+        "jsCode": "const openaiOutput = $input.first().json;\nconst ctx = $(\"Confidence Evaluator\").item.json;\n// Native OpenAI node returns output[0].content[0].text\nconst text = openaiOutput.output && openaiOutput.output[0] && openaiOutput.output[0].content && openaiOutput.output[0].content[0] && openaiOutput.output[0].content[0].text;\nif (!text) {\n  return [{ json: { session_id: ctx.session_id, customer_id: ctx.customer_id, question: ctx.question, confidence: \"escalated\", keyword_matched: null, response: \"I'm having trouble retrieving that information right now. Let me connect you with our support team.\", escalated: true, escalation_reason: \"openai_api_error\", escalation_notified: false, } }];\n}\nreturn [{ json: { session_id: ctx.session_id, customer_id: ctx.customer_id, question: ctx.question, confidence: \"high\", keyword_matched: null, response: text, escalated: false, escalation_reason: null, escalation_notified: false, } }];"
+      }
+    },
+    {
+      "id": "node-13",
+      "name": "Build Response Low",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1920,
+        580
+      ],
+      "parameters": {
+        "jsCode": "const ctx = $(\"Confidence Evaluator\").item.json;\nconst response = ctx.vague\n  ? \"Could you give me a bit more detail about your question? For example, are you asking about payments, invoicing, or account setup?\"\n  : \"I don't have specific information on that in our documentation. Let me connect you with a member of our support team who can help.\";\nreturn [{ json: { session_id: ctx.session_id, customer_id: ctx.customer_id, question: ctx.question, confidence: \"low\", keyword_matched: null, response, escalated: true, escalation_reason: \"no_knowledge_match\", escalation_notified: false, } }];"
+      }
+    },
+    {
+      "id": "node-14",
+      "name": "Escalation Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1920,
+        780
+      ],
+      "continueOnFail": true,
+      "parameters": {
+        "sendTo": "evanolayinka@gmail.com",
+        "subject": "={{ '🚨 RelayPay Escalation – ' + $json.session_id }}",
+        "message": "={{ \"Relaypay Support Escalation\\n\\nCustomer Question: \" + $json.question + \"\\nReason: \" + ($json.keyword_matched ? \"Sensitive keyword: \" + $json.keyword_matched : \"Sensitive topic\") + \"\\nSession ID: \" + $json.session_id + \"\\nTimestamp: \" + new Date().toISOString() + \"\\n\\nPlease follow up with this customer directly.\" }}",
+        "options": {}
+      },
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "W9wtA0NLGSmAV2mw",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    },
+    {
+      "id": "node-15",
+      "name": "Build Response Escalated",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2160,
+        780
+      ],
+      "parameters": {
+        "jsCode": "const gmailOutput = $input.first().json;\nconst ctx = $(\"Confidence Evaluator\").item.json;\nconst escalationNotified = !(gmailOutput.error);\nreturn [{ json: { session_id: ctx.session_id, customer_id: ctx.customer_id, question: ctx.question, confidence: \"escalated\", keyword_matched: ctx.keyword_matched, response: \"I'm connecting you with our support team now. Someone will follow up with you shortly.\", escalated: true, escalation_reason: ctx.keyword_matched ? (\"sensitive_keyword: \" + ctx.keyword_matched) : \"sensitive_topic\", escalation_notified: escalationNotified, } }];"
+      }
+    },
+    {
+      "id": "node-16",
+      "name": "Respond to VAPI",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        2400,
+        560
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({response: $json.response}) }}",
+        "options": {
+          "responseCode": 200
+        }
+      }
+    },
+    {
+      "id": "node-17",
+      "name": "Log to Supabase",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2640,
+        560
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://lgcokylcrzprpdnndhlk.supabase.co/rest/v1/conversation_logs",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "REDACTED_SUPABASE_SERVICE_KEY"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer REDACTED_SUPABASE_SERVICE_KEY"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Prefer",
+              "value": "return=minimal"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "session_id",
+              "value": "={{ $json.session_id }}"
+            },
+            {
+              "name": "customer_id",
+              "value": "={{ $json.customer_id }}"
+            },
+            {
+              "name": "question",
+              "value": "={{ $json.question }}"
+            },
+            {
+              "name": "response",
+              "value": "={{ $json.response }}"
+            },
+            {
+              "name": "confidence",
+              "value": "={{ $json.confidence }}"
+            },
+            {
+              "name": "escalated",
+              "value": "={{ $json.escalated }}"
+            },
+            {
+              "name": "escalation_reason",
+              "value": "={{ $json.escalation_reason || null }}"
+            },
+            {
+              "name": "keyword_matched",
+              "value": "={{ $json.keyword_matched || null }}"
+            },
+            {
+              "name": "escalation_notified",
+              "value": "={{ $json.escalation_notified || false }}"
+            },
+            {
+              "name": "created_at",
+              "value": "={{ new Date().toISOString() }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "connections": {
+    "VAPI Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate Secret",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Secret": {
+      "main": [
+        [
+          {
+            "node": "Auth Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auth Check": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reject 401",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Input Valid Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Input Valid Check": {
+      "main": [
+        [
+          {
+            "node": "Confidence Evaluator",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond Early",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond Early": {
+      "main": [
+        [
+          {
+            "node": "Log Skipped",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confidence Evaluator": {
+      "main": [
+        [
+          {
+            "node": "Route by Confidence",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route by Confidence": {
+      "main": [
+        [
+          {
+            "node": "OpenAI Generate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build Response Low",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Escalation Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Generate": {
+      "main": [
+        [
+          {
+            "node": "Build Response High",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Response High": {
+      "main": [
+        [
+          {
+            "node": "Respond to VAPI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Response Low": {
+      "main": [
+        [
+          {
+            "node": "Respond to VAPI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Escalation Email": {
+      "main": [
+        [
+          {
+            "node": "Build Response Escalated",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Response Escalated": {
+      "main": [
+        [
+          {
+            "node": "Respond to VAPI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to VAPI": {
+      "main": [
+        [
+          {
+            "node": "Log to Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null
 }

@@ -1,0 +1,58 @@
+RELAYPAY KNOWLEDGE BASE — CASE HANDLING DECISION LOGIC
+Topic: How the AI Agent Decides to Answer, Clarify, Escalate, or Decline
+Last Updated: April 2026
+
+---
+
+DECISION LOGIC
+
+1. ANSWER DIRECTLY
+
+When:
+- The question is clearly general
+- The answer exists in documentation
+- No sensitive or account-specific information is required
+
+Example:
+"What are RelayPay's international transfer fees?"
+
+---
+
+2. ASK A CLARIFYING QUESTION
+
+When:
+- The question is vague
+- Multiple interpretations are possible
+
+Example:
+"My payment is stuck."
+
+Response:
+"Can you clarify whether this is an outgoing payout or an incoming transfer?"
+
+---
+
+3. ESCALATE TO HUMAN SUPPORT
+
+When:
+- The question involves account access
+- Compliance or identity verification is required
+- The user is frustrated or reporting an issue
+
+Example:
+"My account was suspended and I don't know why."
+
+---
+
+4. DECLINE TO ANSWER (GRACEFULLY)
+
+When:
+- The system cannot retrieve sufficient context
+- The documentation does not cover the topic
+- Answering would require guessing
+
+Example:
+"Can you tell me exactly when my payment will arrive?"
+
+Response:
+"I want to make sure I give you accurate information. Let me connect you with a member of our team who can look into that specifically."

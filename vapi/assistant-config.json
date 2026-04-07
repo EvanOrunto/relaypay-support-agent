@@ -1,8 +1,7 @@
 {
-  "_comment": "RelayPay Support Agent — VAPI Assistant Configuration Record",
-  "_note": "assistant_id will be populated after Phase 3 VAPI setup via VAPI MCP.",
-  "name": "RelayPay Support Agent",
-  "assistant_id": "PENDING_CREATION",
+  "assistantId": "745385e1-8a4b-4b07-ba8a-c1859b29f745",
+  "name": "Evan's RelayPay Support Agent",
+  "createdAt": "2026-04-06T23:51:21.822Z",
   "model": {
     "provider": "anthropic",
     "model": "claude-sonnet-4-6",
@@ -10,21 +9,27 @@
   },
   "voice": {
     "provider": "11labs",
+    "voiceId": "21m00Tcm4TlvDq8ikWAM",
     "stability": 0.75,
-    "similarity_boost": 0.75
+    "similarityBoost": 0.75
   },
-  "first_message": "Hello, you've reached RelayPay support. How can I help you today?",
-  "end_call_message": "Thank you for contacting RelayPay. Have a great day.",
-  "end_call_phrases": ["goodbye", "that's all", "thanks bye", "no more questions"],
-  "silence_timeout_seconds": 30,
-  "max_duration_seconds": 600,
-  "server_url": "PENDING_N8N_WEBHOOK_URL",
-  "knowledge_base_files": [
-    "kb-onboarding.txt",
-    "kb-pricing-fees.txt",
-    "kb-payout-timelines.txt",
-    "kb-failed-transactions.txt",
-    "kb-invoicing.txt",
-    "kb-compliance.txt"
-  ]
+  "firstMessage": "Hello, you've reached RelayPay support. How can I help you today?",
+  "endCallMessage": "Thank you for contacting RelayPay. Have a great day.",
+  "endCallPhrases": ["goodbye", "that's all", "thanks bye", "no more questions"],
+  "silenceTimeoutSeconds": 30,
+  "maxDurationSeconds": 600,
+  "serverUrl": "https://cohort2pod3.app.n8n.cloud/webhook/relaypay-support",
+  "knowledgeBase": {
+    "provider": "canonical",
+    "files": [
+      { "fileId": "665c9166-a86a-4440-8029-c296cc065811", "name": "kb-onboarding.txt" },
+      { "fileId": "6d9fb45f-5341-4360-ae72-037962467f0c", "name": "kb-pricing-fees.txt" },
+      { "fileId": "4666b5aa-4ac4-4724-ad3f-4bb785b767d5", "name": "kb-payout-timelines.txt" },
+      { "fileId": "23509813-7cd1-4145-a0a6-5f79ff60671b", "name": "kb-failed-transactions.txt" },
+      { "fileId": "80909c77-42e1-4138-ba33-cccb400d9e53", "name": "kb-invoicing.txt" },
+      { "fileId": "af6f3c5a-45b2-4ab0-8ed4-ade4d87e1afc", "name": "kb-compliance.txt" },
+      { "fileId": "9846a460-a93f-4d3e-8eb8-c66bce426a34", "name": "kb-some-cases-handling.txt" },
+      { "fileId": "1e67dd3c-e8e0-4f9c-957f-b29b765b6e2f", "name": "kb-escalation-to-human.txt" }
+    ]
+  }
 }

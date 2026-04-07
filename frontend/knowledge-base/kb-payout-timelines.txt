@@ -1,0 +1,61 @@
+RELAYPAY KNOWLEDGE BASE — PAYOUT TIMELINES
+Topic: Payment Processing Times and Payout Delivery
+Last Updated: April 2026
+
+---
+
+HOW LONG DO PAYMENTS TAKE?
+
+Local payouts typically take 1 to 2 business days. International payouts usually take 2 to 5 business days, depending on the destination country and the banking partners involved in that corridor.
+
+RelayPay does not support real-time or instant international payments. Processing times vary and depend on external banking systems outside of RelayPay's direct control.
+
+---
+
+SUPPORTED PAYMENT TYPES
+
+RelayPay supports:
+- Outbound payouts to external bank accounts
+- Incoming transfers from international clients
+
+Payment availability depends on the destination country, local banking partners in that region, and the customer's compliance and verification status.
+
+---
+
+WHY IS A PAYMENT DELAYED?
+
+Delays can occur for several reasons:
+- Bank processing times at the receiving institution
+- Public holidays in the source or destination country
+- Compliance or risk reviews triggered by the transaction
+- Issues or mismatches with the beneficiary's account details
+
+Transaction status updates may also lag behind real-world bank processing times, especially during peak hours or public holidays.
+
+---
+
+CAN RELAYPAY GUARANTEE PAYMENT TIMELINES?
+
+No. Payment timelines depend on external banking systems and regulatory checks that are outside RelayPay's control. RelayPay does not guarantee specific delivery times.
+
+---
+
+ADDING AND MANAGING BENEFICIARIES
+
+Users can add and manage beneficiary details (the recipients of payouts), reuse saved beneficiaries for future payments, and view payout history at a summary level.
+
+Note: Adding or updating beneficiary details may require additional verification. Newly added beneficiaries may experience a temporary delay before payouts to them can be processed.
+
+---
+
+HOW TO TRACK A PAYOUT
+
+Transaction status updates are available within the RelayPay dashboard. Status labels include states such as "processing," "in review," and "delivered." Note that dashboard statuses may sometimes lag behind actual bank processing, particularly during high-volume periods.
+
+As of the March 2026 update, RelayPay improved the transaction status pipeline to provide clearer distinctions between "processing" and "in review" states.
+
+---
+
+IF A PAYOUT IS TAKING LONGER THAN EXPECTED
+
+If your payout has exceeded the standard 1–5 business day window and there is no indication of a compliance hold or beneficiary issue, contact RelayPay support through the official support channels in your dashboard. Be ready to provide the transaction reference and beneficiary details.
