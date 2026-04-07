@@ -3,11 +3,9 @@
 // Integrates VAPI Web SDK for voice call handling
 // ============================================================
 
-import Vapi from "https://cdn.jsdelivr.net/npm/@vapi-ai/web/dist/vapi.mjs";
-
-// --- Config (replace with real values from .env) ---
-const VAPI_PUBLIC_KEY  = "YOUR_VAPI_PUBLIC_KEY";
-const ASSISTANT_ID     = "YOUR_VAPI_ASSISTANT_ID";
+// --- Config ---
+const VAPI_PUBLIC_KEY  = "0428afe9-1b35-4173-bb2f-4c09bf4d326f";
+const ASSISTANT_ID     = "745385e1-8a4b-4b07-ba8a-c1859b29f745";
 
 // --- DOM Elements ---
 const voiceBtn      = document.getElementById("voice-btn");
@@ -24,7 +22,7 @@ let isCallActive = false;
 
 // --- Init VAPI ---
 function initVapi() {
-  vapi = new Vapi(VAPI_PUBLIC_KEY);
+  vapi = new window.Vapi(VAPI_PUBLIC_KEY);
   bindVapiEvents();
 }
 
