@@ -1,0 +1,87 @@
+# RelayPay – Release Notes & Known Limitations
+
+This document contains internal release notes and known product limitations for RelayPay. It is maintained by the product and engineering teams to keep customer support, operations, and onboarding teams informed about recent changes, temporary issues, and system constraints.
+
+This document reflects the reality that RelayPay is an evolving product. Features may change, issues may arise, and not all limitations have immediate timelines for resolution.
+
+---
+
+## Version 2.4 (Current Release)
+
+**Released:** March 2026
+
+### Improvements
+
+- Updated transaction status pipeline to improve clarity between "processing" and "in review" states
+- Improved invoice creation flow for multi-currency invoices
+- Added clearer messaging around compliance-related delays in the dashboard
+
+### Notes
+
+- Status updates may still lag behind bank confirmations during peak processing hours
+- Some users may see older status labels in historical transactions
+
+---
+
+## Version 2.3
+
+**Released:** January 2026
+
+### Improvements
+
+- Enhanced payout visibility for outbound international transfers
+- Improved beneficiary management interface
+
+### Known Issues
+
+- Newly added beneficiaries may experience temporary payout delays
+- Payout status updates may be delayed by external banking partners
+
+---
+
+## Version 2.2
+
+**Released:** November 2025
+
+### Improvements
+
+- Added support for additional payout corridors
+- Updated internal compliance review workflows
+
+### Known Issues
+
+- Increased review times for certain high-risk corridors
+- Temporary delays during public holidays in supported regions
+
+---
+
+## Ongoing Known Limitations
+
+The following limitations are known and expected:
+
+- RelayPay does not support instant international payouts
+- Exchange rates are subject to market fluctuations and are not locked until processing
+- Transaction processing times depend on external banking systems
+- Compliance reviews may occur at any time, even for previously verified accounts
+
+---
+
+## Temporary Service Constraints
+
+At times, RelayPay may experience temporary service constraints due to:
+
+- Banking partner outages
+- Regulatory changes
+- Scheduled maintenance
+
+During these periods, some features may be partially unavailable or experience delays. Advance notice is provided when possible, but not guaranteed.
+
+---
+
+## Communication Guidance
+
+When referencing release notes or known limitations in customer communications:
+
+- Avoid committing to resolution timelines
+- Do not speculate on internal causes
+- Use high-level explanations focused on transparency and reassurance

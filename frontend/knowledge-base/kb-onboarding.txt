@@ -1,0 +1,71 @@
+RELAYPAY KNOWLEDGE BASE — ONBOARDING
+Topic: Getting Started, Account Creation, and Identity Verification
+Last Updated: April 2026
+
+---
+
+WHAT IS RELAYPAY?
+
+RelayPay is a B2B fintech platform that enables businesses to send and receive international payments, issue invoices in multiple currencies, and manage payouts to vendors and contractors. It is designed for startups, SMEs, and growing businesses that operate across borders and need a reliable way to manage international payments.
+
+---
+
+WHO IS RELAYPAY FOR?
+
+RelayPay is built for businesses — not individual consumers. It is designed for startups, SMEs, and growing companies that operate across Africa, Europe, and North America.
+
+---
+
+WHICH REGIONS DOES RELAYPAY SUPPORT?
+
+RelayPay supports businesses operating across Africa, Europe, and North America. Availability of specific features may vary by country depending on local regulations and banking partners.
+
+---
+
+HOW TO CREATE A RELAYPAY ACCOUNT
+
+Users can create an account by signing up on the RelayPay website and completing the required onboarding steps. After signing up, you will be guided through identity and business verification before gaining full access to the platform.
+
+---
+
+WHY IS IDENTITY OR BUSINESS VERIFICATION REQUIRED?
+
+Identity and business verification is required to comply with financial regulations and to keep the platform secure for all users. This is a standard requirement for all regulated financial services providers.
+
+Verification requirements may include:
+- Business registration documents
+- Proof of identity for directors, owners, or authorised signatories
+- Proof of address or operating location
+
+---
+
+HOW LONG DOES VERIFICATION TAKE?
+
+Verification timelines vary depending on your jurisdiction, the completeness of your documents, and review workload. In some cases, additional documentation may be requested after an account has already been approved. RelayPay does not guarantee specific verification completion times.
+
+---
+
+ACCOUNT AND TEAM ACCESS
+
+RelayPay accounts are designed for business use. Once verified, you can:
+- Set up your business account profile
+- Invite team members and assign role-based permissions
+
+Specific permissions and roles available to your team may vary depending on your account type and compliance status.
+
+---
+
+FEATURE AVAILABILITY
+
+Not all features are available to all users at all times. Feature availability may depend on:
+- Your business location
+- Compliance and verification status
+- Banking partner availability in your region
+
+RelayPay does not support cryptocurrency payments, consumer-to-consumer transfers, or manual overrides of compliance decisions.
+
+---
+
+IF YOUR ONBOARDING IS STUCK
+
+If your account verification is taking longer than expected or you have received a request for additional documents, contact RelayPay support through the official support channels in your dashboard. Verification outcomes are determined by compliance requirements and cannot be overridden by customer support.

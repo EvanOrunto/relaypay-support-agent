@@ -1,0 +1,76 @@
+RELAYPAY KNOWLEDGE BASE — ESCALATION AND SUPPORT HANDLING POLICY
+Topic: When and How to Escalate to a Human Support Representative
+Last Updated: April 2026
+
+---
+
+1. PURPOSE
+
+RelayPay's AI Customer Support Agent is designed to handle general product questions and policy clarifications. When a user's request involves account-specific issues, compliance matters, disputes, or situations requiring human judgment, the agent must escalate the interaction to a human support representative.
+
+Escalation ensures accuracy, compliance, and customer trust.
+
+---
+
+2. WHAT QUALIFIES FOR ESCALATION
+
+The agent must escalate when a user:
+- Asks about their specific account, transaction, or balance
+- Reports an account restriction or suspension
+- Requests dispute, refund, or cancellation support
+- Raises compliance or identity verification concerns
+- Expresses frustration or urgency
+- Asks for information not covered in documentation
+
+If there is uncertainty, escalation is preferred over guessing.
+
+---
+
+3. WHAT THE AI AGENT MUST DO
+
+When escalation is required, the agent should:
+- Clearly inform the user that a specialist is required
+- Offer to schedule a support call
+- Collect required scheduling details (name, email, preferred time)
+- Confirm that a support representative will follow up
+
+The agent should not continue attempting to resolve the issue once escalation is triggered.
+
+---
+
+4. WHAT THE AI AGENT MUST NOT DO
+
+The agent must not:
+- Diagnose account-level issues
+- Explain internal compliance decisions
+- Provide timelines for disputes or reviews
+- Promise specific outcomes
+- Access or display sensitive account data
+
+---
+
+5. BACKEND ESCALATION REQUIREMENTS
+
+When escalation is triggered, the system must:
+- Create an internal escalation record
+- Book a support appointment
+- Notify the appropriate support channel (Slack, Telegram, Email, etc.)
+- Log the escalation event for audit purposes
+
+Escalations must be trackable and auditable.
+
+---
+
+ESCALATION TABLE SCHEMA
+
+Table: escalations
+Fields:
+- escalation_id (auto-generated)
+- timestamp
+- user_name
+- user_email
+- category (compliance / account / dispute / other)
+- escalation_reason (AI-generated summary)
+- call_booked (Yes / No)
+- appointment_time
+- status (Open / In Progress / Closed)

@@ -1,0 +1,95 @@
+# RelayPay – Product Features Overview
+
+This document describes RelayPay's core product features in more detail. It represents internal product documentation used by customer support and operations teams to understand what the product does, how features are intended to be used, and where clear limitations exist.
+
+---
+
+## 1. International Payments
+
+RelayPay enables businesses to send and receive international payments across supported corridors in Africa, Europe, and North America. Payments can be made to vendors, contractors, service providers, and business partners.
+
+Supported payment types include:
+
+- Outbound payouts to external bank accounts
+- Incoming transfers from international clients
+
+Payment availability depends on:
+
+- Destination country
+- Local banking partners
+- Compliance and verification status
+
+RelayPay does not currently support real-time or instant international payments. Processing times vary by corridor and external banking systems.
+
+---
+
+## 2. Multi-Currency Invoicing
+
+RelayPay allows users to create, issue, and manage invoices in multiple currencies from a single dashboard.
+
+Invoice features include:
+
+- Creating invoices in supported currencies
+- Adding line items, taxes, and due dates
+- Tracking invoice status (draft, sent, paid)
+
+Invoices are intended to help businesses request payment from clients, but RelayPay does not guarantee payment collection. Payment success depends on the payer's location, payment method, and bank processing.
+
+---
+
+## 3. Payout & Beneficiary Management
+
+RelayPay supports payouts to contractors and vendors through managed beneficiary records.
+
+Users can:
+
+- Add and manage beneficiary details
+- Reuse beneficiaries for future payouts
+- View payout history at a summary level
+
+Adding or updating beneficiary details may require additional verification. Newly added beneficiaries may experience temporary delays before payouts can be processed.
+
+---
+
+## 4. Transaction Tracking & Reporting
+
+RelayPay provides basic transaction tracking and reporting tools within the dashboard.
+
+Users can:
+
+- View transaction status updates
+- Access historical transaction summaries
+- Download basic reports for reconciliation purposes
+
+Transaction statuses may lag behind real-world bank processing times, especially during peak hours or public holidays.
+
+---
+
+## 5. Account & Team Access
+
+RelayPay accounts are designed for business use.
+
+Features include:
+
+- Business account profiles
+- Team member access with role-based permissions
+
+Specific permissions and roles may vary by account type and compliance status.
+
+---
+
+## 6. Feature Availability & Limitations
+
+Feature availability may vary based on:
+
+- User location
+- Compliance requirements
+- Banking partner availability
+
+RelayPay does not support:
+
+- Cryptocurrency payments
+- Consumer-to-consumer (P2P) transfers
+- Manual overrides of compliance decisions
+
+Some features may be temporarily unavailable due to maintenance or external dependencies.

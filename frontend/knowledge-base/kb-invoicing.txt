@@ -1,0 +1,55 @@
+RELAYPAY KNOWLEDGE BASE — INVOICING
+Topic: Invoice Creation, Management, and Payment Collection
+Last Updated: April 2026
+
+---
+
+WHAT IS RELAYPAY'S INVOICING FEATURE?
+
+RelayPay allows businesses to create, issue, and manage invoices in multiple currencies from a single dashboard. It is designed to help businesses request payment from international clients without needing separate invoicing tools.
+
+---
+
+WHAT CAN YOU DO WITH RELAYPAY INVOICES?
+
+Using RelayPay's invoicing feature, you can:
+- Create invoices in supported currencies
+- Add line items, taxes, and payment due dates
+- Track invoice status — from draft through to sent and paid
+- Reuse client details for repeat invoices
+
+---
+
+DOES RELAYPAY SUPPORT MULTI-CURRENCY INVOICING?
+
+Yes. RelayPay supports invoicing in any currency. You can issue an invoice in the currency your client prefers while managing your account in your operating currency.
+
+---
+
+HOW DOES A CLIENT PAY A RELAYPAY INVOICE?
+
+Payment success depends on the payer's location, their available payment method, and their bank's processing. RelayPay provides the tools to issue and track invoices, but payment collection depends on the payer completing the payment on their end.
+
+---
+
+DOES RELAYPAY AUTOMATICALLY COLLECT INVOICE PAYMENTS?
+
+No. RelayPay does not automatically collect or guarantee invoice payments. The platform provides tools to issue, send, and track invoices, but payment completion depends on the payer.
+
+---
+
+HOW DO I TRACK WHETHER AN INVOICE HAS BEEN PAID?
+
+Invoice status is tracked within the RelayPay dashboard. You can see whether an invoice is in draft, sent, or paid status. You will receive a notification when a payment is confirmed.
+
+---
+
+WHAT HAPPENS IF AN INVOICE IS OVERDUE?
+
+RelayPay does not automatically chase overdue invoices. Managing follow-ups with clients on unpaid invoices is the responsibility of the account holder. You can resend an invoice or update the due date from within your dashboard.
+
+---
+
+FOR FURTHER INVOICING ASSISTANCE
+
+For questions about specific invoice settings, payment methods accepted by your clients, or accounting exports, contact RelayPay support through the official support channels in your dashboard.

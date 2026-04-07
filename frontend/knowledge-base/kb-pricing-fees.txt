@@ -1,0 +1,27 @@
+RELAYPAY KNOWLEDGE BASE — PRICING AND FEES
+Topic: Transaction Fees, Pricing Structure, and Exchange Rates
+Last Updated: April 2026
+
+---
+
+HOW RELAYPAY CHARGES FEES
+
+Fees vary based on transaction type, payment corridor, and payment method. All applicable fees are displayed to the user before a transaction is confirmed — there are no hidden charges applied after confirmation.
+
+---
+
+CAN I SEE THE FEES BEFORE I SEND A PAYMENT?
+
+Yes. All applicable fees are shown to you before you confirm any transaction. You will always know the total cost before committing to a payment.
+
+---
+
+ARE EXCHANGE RATES FIXED?
+
+No. Exchange rates are not fixed. They fluctuate based on market conditions and are not locked in until a transaction is being processed. The rate displayed at the time of confirmation is the rate applied to that transaction.
+
+---
+
+CAN RELAYPAY TELL ME THE EXACT FEE FOR MY TRANSACTION?
+
+Specific fee amounts vary depending on your transaction type, destination corridor, and payment method. The exact fee for your transaction will be displayed in your dashboard before you confirm it. For detailed pricing information, log in to your RelayPay account or contact the support team through your dashboard.

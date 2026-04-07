@@ -1,0 +1,107 @@
+# RelayPay – Frequently Asked Questions (FAQ)
+
+This document contains commonly asked customer questions and approved company responses. It represents an internal FAQ maintained by RelayPay to ensure consistent, accurate communication across customer support, operations, and onboarding teams.
+
+The questions and answers below reflect how RelayPay publicly explains its product and policies. They are intentionally conservative and high-level, and they do not cover account-specific situations.
+
+---
+
+## 1. Getting Started
+
+**What is RelayPay?**
+
+RelayPay is a B2B fintech platform that enables businesses to send and receive international payments, issue invoices in multiple currencies, and manage payouts to vendors and contractors.
+
+**Who is RelayPay built for?**
+
+RelayPay is designed for startups, SMEs, and growing businesses that operate across borders and need a reliable way to manage international payments.
+
+**Which regions does RelayPay support?**
+
+RelayPay supports businesses operating across Africa, Europe, and North America. Availability of specific features may vary by country.
+
+---
+
+## 2. Accounts & Onboarding
+
+**How do I create a RelayPay account?**
+
+Users can create an account by signing up on the RelayPay website and completing the required onboarding steps.
+
+**Why do I need to verify my identity or business?**
+
+Identity verification is required to comply with financial regulations and to keep the platform secure for all users.
+
+**How long does verification take?**
+
+Verification timelines vary depending on jurisdiction and document completeness. RelayPay does not guarantee verification completion times.
+
+---
+
+## 3. Payments & Transfers
+
+**How long do payments take to process?**
+
+Local payouts typically take 1–2 business days. International payouts usually take 2–5 business days, depending on destination and banking partners.
+
+**Why is my payment delayed?**
+
+Delays can occur due to bank processing times, public holidays, compliance reviews, or issues with beneficiary details.
+
+**Can RelayPay guarantee payment timelines?**
+
+No. Payment timelines depend on external banking systems and regulatory checks.
+
+---
+
+## 4. Fees & Pricing
+
+**How does RelayPay charge fees?**
+
+Fees vary based on transaction type, corridor, and payment method. All applicable fees are displayed before a transaction is confirmed.
+
+**Are exchange rates fixed?**
+
+No. Exchange rates may fluctuate based on market conditions.
+
+---
+
+## 5. Invoices
+
+**Can I create invoices in multiple currencies?**
+
+Yes. RelayPay supports invoicing in multiple currencies.
+
+**Does RelayPay automatically collect invoice payments?**
+
+RelayPay provides tools to issue and track invoices, but payment collection depends on the payer's payment method and location.
+
+---
+
+## 6. Account Issues & Restrictions
+
+**Why is my account under review?**
+
+Accounts may be reviewed as part of routine compliance and security processes. Reviews do not necessarily indicate a problem.
+
+**What should I do if my account is restricted?**
+
+Users should contact RelayPay support through official support channels for assistance.
+
+---
+
+## 7. Support & Escalation
+
+**How do I contact RelayPay support?**
+
+Support can be reached through the support options available in the RelayPay dashboard.
+
+**What issues require human support?**
+
+Account-specific questions, disputes, failed transactions, and compliance-related issues are handled by human support teams.
+
+---
+
+## Final Note
+
+This FAQ is designed to provide consistent, approved responses to common questions. It does not replace detailed product documentation or policy requirements. When a question falls outside the scope of this FAQ, escalation to the appropriate team is required.
